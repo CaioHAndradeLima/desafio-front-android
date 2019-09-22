@@ -10,9 +10,9 @@ class MainPagerAdapter(private val activity: AppCompatActivity) :
     FragmentPagerAdapter(activity.supportFragmentManager) {
 
     companion object {
+        const val POSITION_ALL_POKEMON_FRAGMENT = 0
+        const val POSITION_MY_POKEMON_FRAGMENT = 1
         const val TOTAL_PAGES = 2
-        const val POSITION_MY_POKEMON_FRAGMENT = 0
-        const val POSITION_ALL_POKEMON_FRAGMENT = 1
     }
 
     override fun getItem(position: Int): Fragment {

@@ -2,10 +2,10 @@ package com.test.networking
 
 import com.test.apipoke.PokeIntegration
 import com.test.apipoke.model.PokemonEntity
-import com.test.core.DisposableManager
+import com.test.core.view.DisposableManager
 import io.reactivex.Observable
 
-object PokemonUseCase {
+object PokemonByIdUseCase {
 
     fun searchPokemonById(
         id: Int,

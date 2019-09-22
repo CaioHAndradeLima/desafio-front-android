@@ -30,7 +30,7 @@ android {
 
         def applicationDependencies = rootProject.ext.mainApplication
         def unitTestDependencies = rootProject.ext.unitTesting
-
+        def integrationTesting = rootProject.ext.integrationTesting
         implementation applicationDependencies.appCompat
         implementation applicationDependencies.room
         implementation applicationDependencies.constraintLayout
@@ -55,8 +55,13 @@ android {
         kapt applicationDependencies.roomCompiler
 
         testImplementation unitTestDependencies.junit
-
+        androidTestImplementation integrationTesting.runner
+        androidTestImplementation integrationTesting.espresso
+        androidTestImplementation integrationTesting.support
+        androidTestImplementation integrationTesting.rules
+        androidTestImplementation integrationTesting.uiautomator
         compile project(path: ':core')
         compile project(path: ':networking')
+        compile project(path: ':designsystem')
     }
 }

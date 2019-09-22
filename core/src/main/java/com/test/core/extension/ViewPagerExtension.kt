@@ -1,4 +1,4 @@
-package com.test.core.extensiono
+package com.test.core.extension
 
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager

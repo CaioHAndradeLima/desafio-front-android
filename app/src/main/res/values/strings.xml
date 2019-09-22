@@ -3,4 +3,6 @@
     <string name="search">search</string>
     <string name="tab_my_pokemon">meus pokemons</string>
     <string name="tab_all_pokemon">todos</string>
+    <string name="weight">%1$d hectogramas</string>
+    <string name="height">%1$d decímetros</string>
 </resources>

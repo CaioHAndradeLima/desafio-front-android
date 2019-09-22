@@ -1,10 +1,10 @@
-package com.test.core
+package com.test.core.view
 
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.Disposable
 
-class BaseActivity: AppCompatActivity(), DisposableManager {
+abstract class BaseActivity: AppCompatActivity(), DisposableManager {
     private val listDisposables = mutableListOf<Disposable>()
 
     override fun addDisposable(disposable: Disposable) {

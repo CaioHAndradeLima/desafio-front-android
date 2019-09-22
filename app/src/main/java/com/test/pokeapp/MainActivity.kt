@@ -2,18 +2,21 @@ package com.test.pokeapp
 
 import android.os.Bundle
 import android.view.Menu
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.viewpager.widget.ViewPager
+import com.test.core.view.BaseActivity
 import com.test.core.extension.getFragment
 import com.test.core.extension.hideSoftKeyboard
 import com.test.pokeapp.MainPagerAdapter.Companion.POSITION_MY_POKEMON_FRAGMENT
 import com.test.pokeapp.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
+class MainActivity : BaseActivity(),
+    ViewPager.OnPageChangeListener,
+    MainFragmentsContract
+{
     private lateinit var searchView: SearchView
-    private val mainPresenter by lazy { MainPresenter() }
+    private val presenter by lazy { MainPresenter() }
 
     private var lastPositionViewPager = POSITION_MY_POKEMON_FRAGMENT
 
@@ -93,5 +96,13 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         closeSearchBar()
         lastPositionViewPager = position
     }
+
+    override fun getMainPresenter(): MainPresenter = presenter
+
+}
+
+interface MainFragmentsContract {
+
+    fun getMainPresenter() : MainPresenter
 
 }
