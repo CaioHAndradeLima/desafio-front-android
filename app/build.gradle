@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -20,15 +19,44 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core-ktx:1.2.0-alpha04'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidExtensions {
+        experimental = true
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+        def applicationDependencies = rootProject.ext.mainApplication
+        def unitTestDependencies = rootProject.ext.unitTesting
+
+        implementation applicationDependencies.appCompat
+        implementation applicationDependencies.room
+        implementation applicationDependencies.constraintLayout
+        implementation applicationDependencies.cardView
+        implementation applicationDependencies.recyclerView
+        implementation applicationDependencies.circularImageView
+
+        implementation applicationDependencies.materialDesign
+
+        implementation applicationDependencies.retrofit
+
+        implementation applicationDependencies.glide
+
+        // Gson serializable
+        implementation applicationDependencies.gson
+        implementation applicationDependencies.retrofitConverter
+        implementation applicationDependencies.retrofitRxJava
+
+        implementation applicationDependencies.rxJava
+        implementation applicationDependencies.rxAndroid
+
+        kapt applicationDependencies.roomCompiler
+
+        testImplementation unitTestDependencies.junit
+
+        compile project(path: ':core')
+        compile project(path: ':networking')
+    }
 }
