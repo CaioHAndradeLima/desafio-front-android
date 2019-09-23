@@ -1,1 +1,1 @@
-include ':app', ':networking', ':apipoke', ':core', ':designsystem'
+include ':app', ':networking', ':apipoke', ':core', ':designsystem', ':localdatabase'

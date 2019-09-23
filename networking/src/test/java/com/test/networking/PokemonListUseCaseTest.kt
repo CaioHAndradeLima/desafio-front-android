@@ -1,6 +1,7 @@
 package com.test.networking
 
 import com.test.apipoke.PokeIntegration
+import com.test.networking.remotedatabase.PokemonListUseCase
 import io.mockk.every
 import io.mockk.mockkObject
 import org.junit.Assert.assertEquals

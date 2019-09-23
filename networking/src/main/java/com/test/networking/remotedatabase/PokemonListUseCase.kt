@@ -1,4 +1,4 @@
-package com.test.networking
+package com.test.networking.remotedatabase
 
 import com.test.apipoke.PokeIntegration
 import com.test.apipoke.model.PokemonEntity

@@ -56,9 +56,6 @@ dependencies {
 
     testImplementation unitTestDependencies.junit
     testImplementation unitTestDependencies.robolectric
-    testImplementation unitTestDependencies.mockk
 
-    compile project(path: ':apipoke')
     compile project(path: ':core')
-    compile project(path: ':localdatabase')
 }
