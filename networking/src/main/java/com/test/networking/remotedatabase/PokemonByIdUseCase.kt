@@ -1,4 +1,4 @@
-package com.test.networking
+package com.test.networking.remotedatabase
 
 import com.test.apipoke.PokeIntegration
 import com.test.apipoke.model.PokemonEntity
@@ -9,7 +9,7 @@ object PokemonByIdUseCase {
 
     fun searchPokemonById(
         id: Int,
-        dm: DisposableManager,
+        dm: DisposableManager?,
         callbackSuccess: (it: PokemonEntity) -> Unit,
         callbackError: (it: Throwable) -> Unit
     ) {
@@ -19,6 +19,6 @@ object PokemonByIdUseCase {
             .map { it(id) }
             .subscribe(callbackSuccess::invoke, callbackError::invoke)
 
-        dm.addDisposable(disposable)
+        dm?.addDisposable(disposable)
     }
 }

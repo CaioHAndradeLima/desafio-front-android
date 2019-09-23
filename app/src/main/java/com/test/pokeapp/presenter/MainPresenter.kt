@@ -2,8 +2,8 @@ package com.test.pokeapp.presenter
 
 import com.test.apipoke.model.PokemonEntity
 import com.test.core.view.DisposableManager
-import com.test.networking.PokemonByIdUseCase
-import com.test.networking.PokemonListUseCase
+import com.test.networking.remotedatabase.PokemonByIdUseCase
+import com.test.networking.remotedatabase.PokemonListUseCase
 
 class MainPresenter {
 

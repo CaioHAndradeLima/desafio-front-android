@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.viewpager.widget.ViewPager
-import com.test.core.view.BaseActivity
 import com.test.core.extension.getFragment
 import com.test.core.extension.hideSoftKeyboard
+import com.test.core.view.BaseActivity
 import com.test.pokeapp.MainPagerAdapter.Companion.POSITION_MY_POKEMON_FRAGMENT
 import com.test.pokeapp.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(),
     ViewPager.OnPageChangeListener,
-    MainFragmentsContract
-{
+    MainFragmentsContract {
     private lateinit var searchView: SearchView
     private val presenter by lazy { MainPresenter() }
 
@@ -29,7 +28,6 @@ class MainActivity : BaseActivity(),
         viewpager.adapter = MainPagerAdapter(this)
         viewpager.addOnPageChangeListener(this)
     }
-
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         super.onPrepareOptionsMenu(menu)
@@ -79,7 +77,6 @@ class MainActivity : BaseActivity(),
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
@@ -98,11 +95,9 @@ class MainActivity : BaseActivity(),
     }
 
     override fun getMainPresenter(): MainPresenter = presenter
-
 }
 
 interface MainFragmentsContract {
 
-    fun getMainPresenter() : MainPresenter
-
+    fun getMainPresenter(): MainPresenter
 }
