@@ -55,6 +55,7 @@ dependencies {
     kapt applicationDependencies.roomCompiler
 
     testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.mockk
 
     compile project(path: ':apipoke')
     compile project(path: ':core')
